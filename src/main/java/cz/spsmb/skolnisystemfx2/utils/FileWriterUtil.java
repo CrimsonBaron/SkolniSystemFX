@@ -2,10 +2,7 @@ package cz.spsmb.skolnisystemfx2.utils;
 
 import cz.spsmb.skolnisystemfx2.models.Student;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
 
 public class FileWriterUtil {
@@ -22,7 +19,8 @@ public class FileWriterUtil {
 
     public void write(Set<Student> students) throws IOException {
 
-        fileWriter.write("");
+        new FileOutputStream(file).close();
+        fileWriter = new FileWriter(file,true);
         String text = "name;grades;totalGrades\n";
 
        if (!students.isEmpty()){
